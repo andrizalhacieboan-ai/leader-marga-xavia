@@ -11,7 +11,7 @@ const publicDir = path.join(__dirname, 'public');
 const port = Number(process.env.PORT || 3000);
 const adminUsername = process.env.ADMIN_USERNAME || 'andriyt';
 const adminPassword = process.env.ADMIN_PASSWORD || 'andri2002';
-const dbPath = process.env.SQLITE_PATH || path.join(__dirname, 'reviactyl.db');
+const dbPath = process.env.SQLITE_PATH || path.join(__dirname, 'libsql://reviactyl-andri.aws-ap-south-1.turso.io');
 const db = new DatabaseSync(dbPath);
 const sessions = new Map();
 
