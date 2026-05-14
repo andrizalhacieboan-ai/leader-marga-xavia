@@ -1,4 +1,4 @@
-# Reviactyl Snippet Share
+# Reviactyl Snippet Share by andri store
 
 Website share code snippet bertema **Reviactyl** dengan frontend HTML/CSS/JavaScript dan backend Node.js memakai database SQLite yang cocok untuk alur Turso/libSQL.
 
@@ -9,8 +9,8 @@ Website share code snippet bertema **Reviactyl** dengan frontend HTML/CSS/JavaSc
 - Daftar snippet publik dengan jumlah view dan jumlah salin kode.
 - Tombol **Salin** untuk menyalin kode sekaligus menambah statistik salin.
 - Menu **Admin Panel** dengan kredensial default:
-  - Username: `andriyt`
-  - Password: `andri2002`
+  - Username: `*******`
+  - Password: `*******`
 - Admin dapat melihat total user, snippet, view, salin, dan menghapus snippet.
 
 ## Menjalankan lokal
@@ -40,3 +40,4 @@ Kredensial admin juga bisa diganti melalui environment variable:
 export ADMIN_USERNAME="admin"
 export ADMIN_PASSWORD="password-kuat"
 ```
+`ⓒpowered by andri store`
