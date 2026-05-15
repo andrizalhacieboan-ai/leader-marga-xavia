@@ -40,6 +40,33 @@ npm start
 
 > Jangan commit token Turso ke repository. Simpan token di environment variable platform hosting Anda.
 
+
+## Deploy ke Vercel
+
+Repository ini sudah menyertakan `vercel.json` untuk menjalankan `server.js` sebagai Vercel Node Function dan mengarahkan semua route ke aplikasi. File `public/**` ikut disertakan ke function agar frontend tetap bisa disajikan dari server.
+
+Environment production yang **wajib** ditambahkan di Vercel adalah token Turso:
+
+```bash
+vercel env add TURSO_AUTH_TOKEN production
+```
+
+Environment production lain sudah diberi default di `vercel.json`, tetapi tetap bisa dioverride lewat dashboard Vercel jika diperlukan:
+
+```bash
+vercel env add TURSO_DATABASE_URL production
+vercel env add ADMIN_USERNAME production
+vercel env add ADMIN_PASSWORD production
+```
+
+Setelah environment production selesai, deploy dengan:
+
+```bash
+vercel --prod
+```
+
+> Jangan masukkan token Turso langsung ke `vercel.json`; gunakan menu Environment Variables Vercel atau perintah `vercel env add`.
+
 ## Fallback SQLite lokal
 
 Jika `TURSO_AUTH_TOKEN` belum diset, server akan memakai SQLite lokal. Di serverless/read-only runtime, file fallback otomatis dipindahkan ke `/tmp/reviactyl.db` agar tidak memunculkan error `unable to open database file`.

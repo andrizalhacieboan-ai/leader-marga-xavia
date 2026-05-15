@@ -426,7 +426,7 @@ async function handleApi(req, res) {
 
 await initDb();
 
-const server = http.createServer(async (req, res) => {
+async function requestHandler(req, res) {
   if (req.url.startsWith('/api/')) {
     try {
       await handleApi(req, res);
@@ -437,9 +437,15 @@ const server = http.createServer(async (req, res) => {
   }
 
   serveStatic(req, res);
-});
+}
 
-server.listen(port, () => {
-  console.log(`Reviactyl Snippet Share berjalan di http://localhost:${port}`);
-  console.log(`Database mode: ${db.mode} (${db.label})`);
-});
+export default requestHandler;
+
+if (!process.env.VERCEL) {
+  const server = http.createServer(requestHandler);
+
+  server.listen(port, () => {
+    console.log(`Reviactyl Snippet Share berjalan di http://localhost:${port}`);
+    console.log(`Database mode: ${db.mode} (${db.label})`);
+  });
+}
